@@ -75,7 +75,24 @@
     </div>
     
 
+    <script type="text/javascript">
 
+        $("#add-btn").on("click", function(event) {
+          event.preventDefault();
+          var newReservation = {
+            name: $("#name").val().trim(),
+            phoneNumber: $("#number").val().trim(),
+            email: $("#email").val().trim(),
+            uniqueID: $("#unique").val().trim()
+          };
+    
+          $.post("/api/reservations", newReservation)
+            .then(function(data) {
+              console.log("reserve.html", data);
+              alert("Adding reservation ...");
+            });
+        });
+      </script>
 
 </body>
 
