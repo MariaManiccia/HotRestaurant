@@ -48,3 +48,22 @@ app.post("/api/reservations", function (req, res) {
 app.listen(PORT, function () {
   console.log("App listening on PORT " + PORT);
 });
+
+// AJAX GET request to get reservations
+$.ajax({
+  url: "/api/waitlist",
+  method: "GET"
+}).then(function(response) {
+  console.log(response);
+});
+
+// AJAX Post to push them to the api
+$.ajax({
+  url: 'api/reservations',
+  dataType: 'json',
+  type: 'post',
+  contentType: 'application/json',
+  //data: JSON.stringify( { "name": $('#name').val(), "email": $('#email').val() } ),
+  
+});
+
